@@ -17,7 +17,7 @@ const UserScreen = () => {
     //query Article
     const QueryUser = async () => {
         try {
-            const result = await fetch('http://localhost:3000/users', {
+            const result = await fetch('http://192.168.1.41:3000/users', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const UserScreen = () => {
     };
 
     const handleDelete = (item) => {
-        fetch(`http://localhost:3000/users/${item.id}`, {
+        fetch(`http://192.168.1.41:3000/users/${item.id}`, {
             method: 'DELETE',
         })
             .then((response) => response.json())
@@ -73,7 +73,7 @@ const UserScreen = () => {
         const newData = { name, username, gender }
         console.log('update', newData)
         try {
-            const result = await fetch(`http://localhost:3000/users/${id}`, {
+            const result = await fetch(`http://192.168.1.41:3000/users/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ const UserScreen = () => {
         event.preventDefault();
         const newUser = { name, username, gender, password };
         try {
-            const response = await fetch('http://localhost:3000/user/add', {
+            const response = await fetch('http://192.168.1.41:3000/user/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUser),
